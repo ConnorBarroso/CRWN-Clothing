@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './component-styles/login.styles.scss';
-import FormInput from './form-input.component'
+import FormInput from './form-input.component';
+import CustomButton from './custom-button.component';
+import { signInWithGoogle } from '../firebase/firebase.utils'
 
 function Login(){
     let [email, setEmail] = useState('')
@@ -27,7 +29,8 @@ function Login(){
         
                 <FormInput label= 'Password' name='password' type='password' value={password} setUserData={setPassword}/>
                 
-                <input type='submit' value='Submit'/>
+                <CustomButton type='submit' >Log In</CustomButton>
+                <CustomButton onClick={signInWithGoogle} >Log In with Google</CustomButton>
             </form>
         </div>
     )
