@@ -29,8 +29,10 @@ function Login(){
         
                 <FormInput label= 'Password' name='password' type='password' value={password} setUserData={setPassword}/>
                 
+                <div className='buttons'>
                 <CustomButton type='submit' >Log In</CustomButton>
-                <CustomButton onClick={signInWithGoogle} >Log In with Google</CustomButton>
+                <CustomButton onClick={signInWithGoogle} isGoogleSignIn >Log In with Google</CustomButton>
+                </div>
             </form>
         </div>
     )
