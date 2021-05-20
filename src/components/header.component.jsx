@@ -5,7 +5,15 @@ import { ReactComponent as Logo} from  '../assets/crown.svg'
 import { auth } from '../firebase/firebase.utils'
 
 
-const Header = ({ currentUser }) =>(
+
+const Header = ({ currentUser, setAccount }) =>{
+    
+    function signOut(){
+        auth.signOut()
+        setAccount(null)
+    }
+    
+    return(
     <div className='header'>
         <Link to="/" className='logo-container'>
             <Logo className='logo'/>
@@ -14,13 +22,16 @@ const Header = ({ currentUser }) =>(
             <Link className='option' to='/shop'>SHOP</Link>
             <Link className='option' to='/contact'>CONTACT US</Link>
             {
-                currentUser ?
-                <div className='option' onClick={() => auth.signOut()}> LOG OUT</div>
+                currentUser ?//checks if there is a currentUser
+                <div className='option' onClick={signOut}> LOG OUT</div>//if there is a currentUser display logout div with signOut onClick
                 :
-                <Link className='option' to='/login'>LOG IN</Link>
+                <Link className='option' to='/login'>LOG IN</Link>//if there is no currentUser display a link to the log in page 
             }
         </div>
     </div>
-)
+    )}
+
+
+
 
 export default Header;

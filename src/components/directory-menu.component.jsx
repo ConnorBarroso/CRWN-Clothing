@@ -4,7 +4,7 @@ import './component-styles/directory-menu.styles.scss'
 
 
 function DirectoryMenu(){
-    const [categories, setCategories] = useState(
+    const [categories] = useState(
         [
             {
               'name': 'HATS',

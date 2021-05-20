@@ -15,7 +15,7 @@ function Login(){
             email, password
         }
 
-        console.log(userData)
+       console.log(userData)
     }
    
         
@@ -31,7 +31,7 @@ function Login(){
                 
                 <div className='buttons'>
                 <CustomButton type='submit' >Log In</CustomButton>
-                <CustomButton onClick={signInWithGoogle} isGoogleSignIn >Log In with Google</CustomButton>
+                <CustomButton onClick={signInWithGoogle} isGoogleSignIn >Log In with Google</CustomButton>{/* onclick triggers the signInWithGoogle function declared in firebase.utils */}
                 </div>
             </form>
         </div>
