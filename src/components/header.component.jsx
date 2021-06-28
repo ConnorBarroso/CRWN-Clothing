@@ -4,6 +4,8 @@ import { connect, useSelector } from 'react-redux'
 import './component-styles/header.styles.scss';
 import { ReactComponent as Logo} from  '../assets/crown.svg'
 import { auth } from '../firebase/firebase.utils'
+import CartIcon from './cart-icon.component';
+import CartDropdown from './cart-dropdown.component';
 
 
 
@@ -33,7 +35,10 @@ const Header = () =>{
                 :
                 <Link className='option' to='/login'>LOG IN</Link>//if there is no currentUser display a link to the log in page 
             }
+            <CartIcon/>
+            
         </div>
+        <CartDropdown/>
     </div>
     )}
 

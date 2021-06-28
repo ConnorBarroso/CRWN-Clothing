@@ -10,8 +10,9 @@ import ShopPage from './pages/shop.component';
 import LoginRegister from './pages/login-register-page.component';
 import Header from './components/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
 import * as actions from './redux/user/user.actions'
-import store from './redux/store'
+
 
 
 
