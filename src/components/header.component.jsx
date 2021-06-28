@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import { connect, useSelector } from 'react-redux'
 import './component-styles/header.styles.scss';
 import { ReactComponent as Logo} from  '../assets/crown.svg'
 import { auth } from '../firebase/firebase.utils'
 
 
 
-const Header = ({ currentUser, setAccount }) =>{
+
+const Header = () =>{
+
+   const currentUser= useSelector((state)=> state.user.currentUser)
     
-    function signOut(){
+    const signOut=()=>{
         auth.signOut()
-        setAccount(null)
+        
     }
     
+    console.log('header', currentUser)
+
     return(
     <div className='header'>
         <Link to="/" className='logo-container'>
@@ -32,6 +38,4 @@ const Header = ({ currentUser, setAccount }) =>{
     )}
 
 
-
-
-export default Header;
+export default Header
