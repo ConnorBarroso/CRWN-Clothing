@@ -1,5 +1,8 @@
+import { addItemToCart } from "./cart.utils"
+
 const INITIAL_STATE = {
-    hidden: true
+    hidden: true,
+    cartItems: []
 }
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -9,6 +12,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return{
                 ...state,
                 hidden: !state.hidden //changes state to opposite value
+            }
+        
+        case 'ADD_TO_CART':
+            console.log('cart reducer')
+            return{
+                ...state,
+                cartItems:addItemToCart(state.cartItems, action.payload)
+            }
+        case 'CLEAR CART':
+            return{
+                ...state,
+                cartItems:[]
             }
         default:
             return state;
