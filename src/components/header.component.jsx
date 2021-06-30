@@ -13,6 +13,7 @@ import CartDropdown from './cart-dropdown.component';
 const Header = () =>{
 
    const currentUser= useSelector((state)=> state.user.currentUser)
+   const hidden = useSelector((state)=> state.cart.hidden)
     
     const signOut=()=>{
         auth.signOut()
@@ -38,7 +39,10 @@ const Header = () =>{
             <CartIcon/>
             
         </div>
-        <CartDropdown/>
+        {
+            hidden ? null :
+             <CartDropdown/>
+        }
     </div>
     )}
 
