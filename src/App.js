@@ -9,7 +9,10 @@ import Homepage from './pages/homepage.component.jsx';
 import ShopPage from './pages/shop.component';
 import LoginRegister from './pages/login-register-page.component';
 import Header from './components/header.component';
+import CheckoutPage from './pages/checkout-page.component';
+
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { selectCurrentUser } from './redux/user/user.selector';
 
 import * as actions from './redux/user/user.actions'
 
@@ -19,7 +22,7 @@ import * as actions from './redux/user/user.actions'
 
 
 function App() {
-  const currentUser = useSelector((state) => state.user.currentUser)
+  const currentUser = useSelector(selectCurrentUser)
 
   const dispatch = useDispatch()
 
@@ -27,8 +30,7 @@ function App() {
 
   useEffect(() => {//triggers on mount 
 
-    console.log('Mounted!')
-
+     
   //userAuth is the user Authentication object provided by google
      const unsubscribe = auth.onAuthStateChanged(async userAuth =>{//creates an auth state change listener that will be removed by calling the unsubscribe function
      
@@ -62,7 +64,8 @@ function App() {
       <Header/>
       <Switch>
         <Route  exact path='/' component={Homepage} />
-        <Route  path='/shop' component={ShopPage} />
+        <Route   path='/shop' component={ShopPage} />
+        <Route  exact path='/checkout' component={CheckoutPage} />
         <Route  exact path='/login' render={()=> currentUser ? (<Redirect to ='/'/>) : (<LoginRegister/>)} />
       </Switch>
       
