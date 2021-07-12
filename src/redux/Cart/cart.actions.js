@@ -10,6 +10,12 @@ export const addItem = item =>{
 })
 }
 
-export const clearCart = () => ({
-    type: 'CLEAR CART'
+export const removeCartItem = item => ({
+    type: 'REMOVE_CART_ITEM',
+    payload: item
+})
+
+export const decrementItem = item =>({
+    type: 'DECREMENT_ITEM',
+    payload: item  
 })
