@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './component-styles/header.styles.scss';
 import { ReactComponent as Logo} from  '../assets/crown.svg'
 import { auth } from '../firebase/firebase.utils'
