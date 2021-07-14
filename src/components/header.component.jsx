@@ -12,6 +12,7 @@ import CartDropdown from './cart-dropdown.component';
 
 
 
+
 const Header = () =>{
 
    const  currentUser = useSelector( selectCurrentUser )
@@ -31,7 +32,7 @@ const Header = () =>{
         </Link>
         <div className='options'>
             <Link className='option' to='/shop'>SHOP</Link>
-            <Link className='option' to='/contact'>CONTACT US</Link>
+            <Link className='option' to='/contact' >CONTACT US</Link>
             {
                 currentUser ?//checks if there is a currentUser
                 <div className='option' onClick={signOut}> LOG OUT</div>//if there is a currentUser display logout div with signOut onClick

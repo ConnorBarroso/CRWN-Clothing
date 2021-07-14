@@ -13,3 +13,4 @@ export const store = createStore(rootReducer,
 
 export const persister = persistStore( store )
 
+export default { persister, store }

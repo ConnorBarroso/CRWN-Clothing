@@ -10,6 +10,7 @@ import ShopPage from './pages/shop.component';
 import LoginRegister from './pages/login-register-page.component';
 import Header from './components/header.component';
 import CheckoutPage from './pages/checkout-page.component';
+import ContactUs from './components/contact-us.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { selectCurrentUser } from './redux/user/user.selector';
@@ -57,7 +58,7 @@ function App() {
     
     return unsubscribe
     
-  },[setCurrentUser])
+  },[])
 
   return (
     <div > 
@@ -66,6 +67,7 @@ function App() {
         <Route  exact path='/' component={Homepage} />
         <Route   path='/shop' component={ShopPage} />
         <Route  exact path='/checkout' component={CheckoutPage} />
+        <Route exact path='/contact' component={ContactUs}/>
         <Route  exact path='/login' render={()=> currentUser ? (<Redirect to ='/'/>) : (<LoginRegister/>)} />
       </Switch>
       
